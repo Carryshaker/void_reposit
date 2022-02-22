@@ -1,4 +1,5 @@
 import math
+import time
 
 class Figures:
     def __init__(self, width, length):
