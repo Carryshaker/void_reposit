@@ -1,5 +1,4 @@
 import math
-import time
 from abc import ABC, abstractmethod
 
 class Figures(ABC):
@@ -8,40 +7,49 @@ class Figures(ABC):
     def area(self):
         pass
 
-#fr = Figures() #try run that line  ---> TypeError: Can't instantiate abstract class Figures with abstract method area it mean 
 
 class Rectangle(Figures):
-    def __init__(self, width, length):        
-        self.width = width
-        self.length = length
-        
+    def __init__(self, width, length):
+        self.width=width
+        self.length=length
+    
     def area(self):
-        return print(int(self.width * self.length), "rectangle area")
+        return print("Rectangle area",int(self.width*self.length))
     
 class Circle(Figures):
-    def __init__(self, radius): #  radius instead  rad       
-        self.radius=radius    
+    def __init__(self, radius):     
+        self.radius=radius
     
-    def area(self): # if u will use class without area method you will get error --> TypeError: Can't instantiate abstract class Circle with abstract method area
-        return print(int(math.pi * (self.radius ** 2)), "circle area") # self for get method ot variable of current class
-    
-class Square(Figures):
-    def __init__(self, width):        
-        self.width = width
     
     def area(self):
-        return print(int(self.width ** 2), "square area") # self for get method ot variable of current class
+        return print("Circle area",int(math.pi*(radius**2)))
     
-f1=Rectangle(10, 12)
-f1.area()   
+class Square(Figures):
+    def __init__(self, length2):        
+        self.length2=length2
+    
+    def area(self):
+        return print("Square area",int(length2**2))
+    
 
-f2=Circle(10)
-f2.area()
 
-f3=Square(12)
-f3.area()
 
-#Please dont write console program, just implement some logic and print
-# 1.You should read about self (this) in classes, what is abstract classes
-# 2. What is function arguments of function
-# 3. Function scope
+fig=input("There is a rectangle, a square, a circle.\nWhat figura area do you need?\n")
+if fig.lower()==str("rectangle"):
+    width=int(input("Width: "))
+    length=int(input("Length: "))
+    f1=Rectangle(width, length)
+    f1.area()
+    
+elif fig.lower()==str("circle"):
+    radius=int(input("Radius: "))
+    f2=Circle(radius)
+    f2.area()
+
+elif fig.lower()==str("square"):
+    length2=int(input("Length: "))
+    f3=Square(length2)
+    f3.area()
+    
+
+    
